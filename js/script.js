@@ -61,10 +61,28 @@ function showMyDB() {
 showMyDB();
 
 
+//function writeYourGenres() {
+//    for (let i = 1; i < 4; i++) {
+//        let genre = prompt(`Ваш любимый жанр под номером ${i}`, '')
+//        if (genre != '' || genre != null || genre !== 'number') {
+//            personalMovieDB.genres[i-1] = genre;
+//        } else {
+//            i--;
+//        }
+//    }
+//}
+
+//writeYourGenres();
+
 function writeYourGenres() {
-    for (let i = 1; i < 4; i++) {
-        personalMovieDB.genres[i-1] = prompt(`Ваш любимый жанр под номером ${i}`)
+    for(let i = 1; i <= 3; i++) {
+        let answer = prompt(`Ваш любимый жанр под номером ${i}`,'');  
+        while(answer == null || answer == '' || !isNaN(answer) ) {
+            answer = prompt(`Ваш любимый жанр под номером ${i}`,''); 
+        }
+        personalMovieDB.genres[i-1] = answer;
+        
     }
 }
-
+ 
 writeYourGenres();
